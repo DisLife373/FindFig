@@ -169,14 +169,14 @@ function Account(){
                 <div className="border-top11"></div>
                 <div style={{height:"20px"}}></div>
                 <div style={{paddingLeft:"20px"}} >
-                    <div className="font09 bold500" onclick="location.href='termsservice.php'">terms of services</div>
+                    <div className="font09 bold500" onClick="location.href='termsservice.php'">terms of services</div>
                     <div style={{height:"5px"}}></div>
-                    <div className="font09 bold500" onclick="location.href='policy.php'">privacy policy</div>
+                    <div className="font09 bold500" onClick="location.href='policy.php'">privacy policy</div>
                     <div style={{height:"5px"}}></div>
                 </div>
                 
                 <div style={{height:"10px"}}></div>
-                <button type="button" className="button-28" onclick={logOut}>
+                <button type="button" className="button-28" onClick={logOut}>
                     log out
                 </button>
                 <div style={{height:"50px"}}></div>
