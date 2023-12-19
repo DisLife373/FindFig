@@ -1,24 +1,164 @@
-#main-profile, #wrapper{
-    position: relative;
-    max-width: 100%;
-}
 #main-profile{
     max-width: 70%;
     margin: 0 auto;
 }
 
-
-.myprofile{
-    max-width: 100px;
-   
+#main-profile .row.page-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
-.user-info{
+
+.user-profile-info {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
 }
-.myprofile-container {
+
+
+@media screen and (min-width: 480px) {
+    .user-profile-info {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
+
+h3.header-text {
+    font-weight: 700px;
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center;
+    font-size: 1.3em;
+    color: #212529;
+}
+
+form.profile-container {
+    display: grid;
+    grid-gap: 0;
+    grid-column: auto;
+    grid-column: span 12/span 12;
+    display: block;
+    margin-top: 0em;
+}
+
+.picture-container {
     display: flex;
     justify-content: center;
     align-items: center;
-/* Adjust as needed */
-  }
+}
+
+img.myprofile{
+    max-width: 100px;
+   
+}
+img.myprofile {
+    max-width: 100px;
+    height: auto !important;
+    align-self: flex-start;
+    vertical-align: middle;
+}
+
+h4.username {
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: #212529;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 700px;
+}
+
+.input-field {
+    display: block;
+}
+
+.input-field .input-box {
+    display: block;
+}
+
+.profile-field .input-box p {
+    padding-left: 5px;
+    color: #212529;
+}
+
+.profile-field .input-box .frm_required {
+    color: #b94a48;
+    font-weight: 700;
+}
+
+.input-box input.input-info {
+    border-radius: 50px;
+    border: 1px solid#ddd;
+    width: 100%;
+    padding: 2% 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+.button-container .button-field {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0;
+}
+
+.button-container .button-field .submit-btn {
+    appearance: none;
+    background-color: #4636fc;
+    border: 2px solid #4636fc;
+    border-radius: 50px;
+    box-sizing: border-box;
+    color: #fcfcfc;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: normal;
+    margin: 20px 0px;
+    width: 300px;
+    outline: none;
+    padding: 2% 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    height: 10%;
+    will-change: transform;
+}
+
+.button-container .button-field .delete-account-btn {
+    appearance: none;
+    background-color: #fc3636;
+    border-radius: 50px;
+    border: 0;
+    box-sizing: border-box;
+    color: #fcfcfc;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: normal;
+    margin: 20px 0px;
+    width: 300px;
+    outline: none;
+    padding: 2% 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    height: 10%;
+    will-change: transform;
+}
