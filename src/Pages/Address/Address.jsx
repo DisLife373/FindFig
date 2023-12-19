@@ -49,9 +49,9 @@ function Address() {
         .then((response) => response.json())
         .then((data) => {
             if (data.UserAddresses != undefined) {
-                setReceiverName(data.UserAddresses[0].receiverName);
-                setTel(data.UserAddresses[0].tel);
-                setAddress(data.UserAddresses[0].address);
+                setReceiverName(data.UserAddresses.receiverName);
+                setTel(data.UserAddresses.tel);
+                setAddress(data.UserAddresses.address);
             }
             
             
@@ -115,7 +115,7 @@ function Address() {
                     </div>
                 </div>
             </div>
-            <AddAddress trigger={addPopUp} setTrigger={setAddPopUp} userData={userData}></AddAddress>
+            <AddAddress trigger={addPopUp} setTrigger={setAddPopUp}></AddAddress>
         </div>
     );
 }
