@@ -9,6 +9,28 @@ function EditAddress(props){
 
     const userEmail = window.localStorage.getItem("userEmail");
 
+    useEffect(() => {
+        fetch("http://localhost:5000/getUserForAddress", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                
+            },
+            body: JSON.stringify({
+                email: userEmail
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            setReceiverName(data.receiverName);
+            setTel(data.tel);
+            setAddress(data.address);            
+        })
+        
+    }, []);
+
     const UpdateData = () => {
         //GetUser();
         console.log(receiverName, tel, address);
