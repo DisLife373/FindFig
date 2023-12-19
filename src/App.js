@@ -36,7 +36,7 @@ function App() {
           <Route path="/profile" element={IsLoggedIn=="true"?<Profile/>:<Login/>}/>
           <Route path="/address" element={<Address/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
-          <Route path="/account" element={<Account/>}/>
+          <Route path="/account" element={IsLoggedIn=="true"?<Account/>:<Login/>}/>
           <Route path="/delete" element={<DelPage/>}/>
 
         </Routes>
