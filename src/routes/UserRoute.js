@@ -10,22 +10,22 @@ const JWT_SECRET ="sadfghjkl;liuytredfghjklkjhgfxcvbnm,wesrdtfyguhijoklpjhjgfdgh
 
 router.route("/register").post(async(req, res) => {
     const {username, email, password} = req.body;
-   const encryptedPassword = await bcrypt.hash(password,10);
-   try{
-    const oldUser = await UserModel.findOne({email});
-    if(oldUser){
-        return res.json({err:"user existed"});
+    const encryptedPassword = await bcrypt.hash(password,10);
+    try{
+        const oldUser = await UserModel.findOne({email});
+        if(oldUser){
+            return res.json({err:"user existed"});
+        }
+        await UserModel.create({
+            username,
+            email,
+            password: encryptedPassword,
+            
+        });
+        res.send({status:"ok"});
+    }catch(err){
+        res.send({status:"error"});
     }
-    await UserModel.create({
-        username,
-        email,
-        password: encryptedPassword,
-        
-    });
-    res.send({status:"ok"});
-   }catch(err){
-    res.send({status:"error"});
-   }
 
 
 });
@@ -77,7 +77,6 @@ router.route("/finduser").get((req,res)=>{
 
 router.route("/addAddress").post(async (req, res) => {
     const {email, receiverName, tel, address} = req.body;
-    console.log(email);
     try {
         await UserModel.updateOne({email: email}, {
             $addToSet: { 
@@ -127,6 +126,19 @@ router.route("/deleteAccount").post(async (req, res) => {
         res.send("Delete Complete")
     })
     .catch(err=> res.send(err))
+});
+
+router.route("/updateUser").post(async (req, res) => {
+    const { email, password } = req.body;
+    const encryptedPassword = await bcrypt.hash(password,10);
+    try {
+        await UserModel.updateOne({email: email}, {
+            password: encryptedPassword, 
+        });
+        return res.json({status: "ok", data: "updated"});
+    } catch (error) {
+        return res.json({status: "error", data: error});
+    }
 });
 
 
