@@ -29,9 +29,10 @@ function UserAdress(props){
             
             console.log(data);
             if (data.UserAddresses != undefined) {
-                setReceiverName(data.UserAddresses[0].receiverName);
-                setTel(data.UserAddresses[0].tel);
-                setAddress(data.UserAddresses[0].address);
+                console.log(data.UserAddresses);
+                setReceiverName(data.UserAddresses.receiverName);
+                setTel(data.UserAddresses.tel);
+                setAddress(data.UserAddresses.address);
             }
             
             //setUserData(data);            
