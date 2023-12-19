@@ -2,7 +2,7 @@ import React from "react"
 import axios from "axios";
 import { useEffect,useState } from "react";
 import { useDropzone } from "react-dropzone";
-import DeletePopUp from "../../components/DeleteAccountPopup/DeletePopUp";
+import DeletePopUp from "../../components/DeleteAccountPopUp/DeletePopUp";
 import Nav from "../../components/Nav/Nav"
 
 import { useLocation } from "react-router-dom";

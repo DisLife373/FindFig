@@ -1,3 +1,21 @@
+.account-content-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.account-content-wrapper .sidebar {
+    width: 8%;
+    padding-left: 2%;
+}
+
+.account-content-wrapper #mainbody {
+    width: 80%;
+}
+
+.account-content-wrapper .space {
+    width: 10%;
+}
+
 .circle {
     border: solid 1.5px grey;
     border-radius: 100%;
