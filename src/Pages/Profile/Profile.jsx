@@ -1,19 +1,11 @@
 import React from "react"
 import axios from "axios";
 import { useEffect,useState } from "react";
-import { useDropzone } from "react-dropzone";
-import DeletePopUp from "../../components/DeleteAccountPopup/DeletePopUp";
 import Nav from "../../components/Nav/Nav"
 import './Profile.css';
-import { useLocation } from "react-router-dom";
-
 
 export default function Profile() {
-
-    const [email_new, setEmail_new]  = useState();
-    const [pass_old, setPass_old]  = useState();
-    const [pass_new, setPass_new]  = useState();
-    const [pass_confirm, setPass_confirm]  = useState();
+    const location = useLocation();
 
     const [userData, setUserdata] = useState({});
 
@@ -38,17 +30,17 @@ export default function Profile() {
                 setUserdata(response.data.data)
             })  
             .catch(error => console.error(error));
-        }
-        else {
-            console.log("error")
-        }
-        window.location.reload();
-    }
+    }, []);
+    
+    console.log(userData);
 
-  
+
+   const logOut=()=>{
+        
+        window.location.href="/";
+    }
     return (
         <div className="wrapper">
-          {GetUserData()}
              <header>
                 <Nav topic="Account" 
                   back="https://cdn.discordapp.com/attachments/787359617280770051/1183513820220629092/3.png?ex=65889c23&is=65762723&hm=b608f4b0dafa79e069345c1fd46fb2256b13299db710a859f027b85295bcbe44&"
@@ -105,48 +97,55 @@ export default function Profile() {
                         <div className="entry-content">
                             
                             <div className="user-info  col">
-                                <h3 className="text-center header-style">Chang password</h3>
+                                <h3 className="text-center header-style">Edit Profile</h3>
                                 
-                                <form onSubmit={(e) => HandleSubmit(e)} className="seller-input">
-                                <div className="myprofile-container">
-       
-                  </div>
-                                    <h4 className="text-center header-style">@{userData.username}</h4>
+                                <form className="seller-input">
+                                    <div className="myprofile-container">
+                                        <img  className="myprofile" src="https://cdn.discordapp.com/attachments/787359617280770051/1185561360084516884/17.png?ex=65900f0e&is=657d9a0e&hm=2f00dae461fd86c9ca1e2b28e2afa51ec1f628cc08c73f50c84289f8ce2142f2" alt="My Profile" />
+                                    </div>
+                                    <h4 className="text-center header-style">{userData.username}</h4>
                                     <div className="large-box">
-                                    
                                         <div className="input-box large">
                                             <p>Email<span className="frm_required">*</span></p>
-                                            <input  className="input-address" name="email" value={userData.email} type="email" disabled ></input>
+                                            <input 
+                                                className="input-info"
+                                                name="email" 
+                                                type="email" 
+                                                value={userData.email}
+                                                disabled
+                                            ></input>
+                                        </div>
+                                        <div className="input-box">
+                                            <p>Current password<span className="frm_required">*</span></p>
+                                            <input className="input-address" name="password" type="password" placeholder="password" ></input>
                                         </div>
                                         <div className="input-box large">
-                                            <p>Current password<span className="frm_required">*</span></p>
-                                            <input className="input-address" name="password" type="password" placeholder="current password"  onChange={(e)=> setPass_old(e.target.value)}></input>
-                                        </div><div className="input-box large">
-                                            <p>new password<span className="frm_required">*</span></p>
-                                            <input className="input-address" name="password" type="password" placeholder="new password"  onChange={(e)=> setPass_new(e.target.value)}></input>
+                                            <p>New Password<span className="frm_required">*</span></p>
+                                            <input  className="input-address" name="password" type="password" placeholder="password" ></input>
                                         </div>
-                                            <div className="input-box large">
+                                        <div className="input-box large">
                                             <p>Confirm password<span className="frm_required">*</span></p>
-                                            <input className="input-address" name="password" type="password" placeholder="confirm password"  onChange={(e)=> setPass_confirm(e.target.value)}></input>
+                                            <input className="input-address" name="password" type="password" placeholder="password" ></input>
                                         </div>
-                                        </div>
-                                    
-                                      
-                                   
+                                    </div>
                                         <div className="submit-form">
                                             <div className="btn-add-form">
-                                                    <button  className="button-28" id="submit-sell" type="submit"  role="button" >Save</button>
-                                                    
+                                                    <button  className="button-28" id="submit-sell" role="button" onClick={logOut} >log out</button>
                                             </div>
                                         </div>
-                                    
+                                    </div>
                                 </form>
+                                <button 
+                                    className="delete-account-btn" 
+                                    type="button" 
+                                    onClick={() => setDeletePopUp(true)} 
+                                >delete account</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-          
+            
         </div>
         </div>
     )
