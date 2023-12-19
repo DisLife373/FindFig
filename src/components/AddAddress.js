@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../Pages/Address/Address';
 import './AddressPopUp.css';
-import { useLocation } from "react-router-dom";
 
 export default function AddAdress(props){
     const [receiverName, setReceiverName] = useState();
@@ -37,7 +36,6 @@ export default function AddAdress(props){
     
 
     const InsertData = async() => {
-        //GetUser();
         console.log(receiverName, tel, address);
         await fetch("http://localhost:5000/addAddress", {
             method: "POST",
@@ -84,8 +82,6 @@ export default function AddAdress(props){
         })
     }
 
-    
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(receiverName);
@@ -100,10 +96,7 @@ export default function AddAdress(props){
         
         props.setTrigger(false);
         window.location.reload(false);
-        
     }
-
-    
 
     function ClosePopUp() {
         props.setTrigger(false);
@@ -148,9 +141,6 @@ export default function AddAdress(props){
                         <button className="submit-btn" type="submit">
                             Submit
                         </button>
-                        {/* <button className="submit-btn" type="button" onClick={() => InsertData()}>
-                            Submit
-                        </button> */}
                     </div>
                 </form>
             </div>
