@@ -16,7 +16,6 @@ export default function Profile() {
             .then((response) => 
             {
               setUserdata(response.data.data);
-              console.log(response.data.data);
             })  
             .catch(error => console.error(error));
     };
@@ -28,7 +27,7 @@ export default function Profile() {
     }
     return (
         <div className="wrapper">
-            { GetUserData }
+            { GetUserData() }
              <header>
                 <Nav topic="Account" 
                   back="https://cdn.discordapp.com/attachments/787359617280770051/1183513820220629092/3.png?ex=65889c23&is=65762723&hm=b608f4b0dafa79e069345c1fd46fb2256b13299db710a859f027b85295bcbe44&"
