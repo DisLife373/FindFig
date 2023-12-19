@@ -88,8 +88,6 @@ router.route("/addAddress").post(async (req, res) => {
                 }
             }
         }, {upsert: true});
-        // const userInfo = await UserModel.findOne({email: email});
-        // console.log("this is userInfo ", userInfo);
         return res.json({status: "ok", data: "updated"});
     } catch (error) {
         return res.json({status: "error", data: error});
@@ -107,8 +105,6 @@ router.route("/editAddress").post(async (req, res) => {
                 address: address, 
             }
         });
-        // const userInfo = await UserModel.findOne({email: email});
-        // console.log("this is userInfo ", userInfo);
         return res.json({status: "ok", data: "updated"});
     } catch (error) {
         return res.json({status: "error", data: error});
@@ -124,13 +120,13 @@ router.route("/getUserForAddress").post(async (req, res) => {
     .catch(err=> res.json(err))
 });
 
-router.route("/deleteUserAddress").post(async (req, res) => {
+router.route("/deleteAccount").post(async (req, res) => {
     const {email} = req.body;
-    UserModel.remove({email: email})
-    .then(user=> {
-        res.json(user)
+    UserModel.deleteOne({email: email})
+    .then(() => {
+        res.send("Delete Complete")
     })
-    .catch(err=> res.json(err))
+    .catch(err=> res.send(err))
 });
 
 
