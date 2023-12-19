@@ -12,15 +12,27 @@ export default function AddAdress(props){
 
     const userEmail = window.localStorage.getItem("userEmail");
 
-    // useEffect(() => {
-    //     if (receiverName != null && tel != null && address != null) {
-    //         console.log(location);
-    //         setReceiverName(location.state.receiverName);
-    //         setTel(location.state.tel);
-    //         setAddress(location.state.address);
-    //     }
-    //     console.log(location);
-    // }, []);
+    useEffect(() => {
+        fetch("http://localhost:5000/getUserForAddress", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                
+            },
+            body: JSON.stringify({
+                email: userEmail
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            setReceiverName(data.receiverName);
+            setTel(data.tel);
+            setAddress(data.address);            
+        })
+        
+    }, []);
 
     
 
@@ -45,7 +57,7 @@ export default function AddAdress(props){
         .then((response) => response.json())
         .then((data) => {
             console.log(data.data);
-            setAddress(data.data);
+            
         })   
     }
 
@@ -68,7 +80,7 @@ export default function AddAdress(props){
         .then((response) => response.json())
         .then((data) => {
             console.log(data.data);
-            setAddress(data.data);
+            
         })
     }
 
@@ -76,7 +88,8 @@ export default function AddAdress(props){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (props.userData.UserAddresses != undefined) {
+        console.log(receiverName);
+        if (receiverName != undefined) {
             UpdateData();
             console.log("Update");
         }
