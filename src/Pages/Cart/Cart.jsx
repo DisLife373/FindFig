@@ -31,12 +31,11 @@ function Cart(){
         .then((response) => response.json())
         .then((data) => {
             console.log(data.UserAddresses);
-            setReceiverName(data.UserAddresses[0].receiverName);
-            setTel(data.UserAddresses[0].tel);
-            setAddress(data.UserAddresses[0].address);            
+            setReceiverName(data.UserAddresses.receiverName);
+            setTel(data.UserAddresses.tel);
+            setAddress(data.UserAddresses.address);            
             setUserData(data);
         })
-        
     }, []);
     
 
@@ -54,22 +53,25 @@ function Cart(){
                 <div className="layoutmain">
                 <div id="content" className="large-12" role="main"></div>
                 { 
-                    window.localStorage.getItem("userReceiverName") !== null ? 
+                    receiverName != undefined ? 
                         <UserAdress 
-                            receiverName={window.localStorage.getItem("userReceiverName")} 
-                            tel={window.localStorage.getItem("userTel")} 
-                            address={window.localStorage.getItem("userAddress")}
+                            receiverName={receiverName} 
+                            tel={tel} 
+                            address={address}
                         ></UserAdress> 
                     : 
                     <div className="warning-zone">
-                        <button className="add-address-from-cart" onClick={() => setAddPopUp(true)}></button>
+                        <button className="add-address-from-cart" onClick={() => setAddPopUp(true)}>
+                            <img src="https://cdn.discordapp.com/attachments/787359617280770051/1185630381899255951/Plus-icon.png?ex=65904f56&is=657dda56&hm=1bac260712735a13c2436dd6984a82f3b322fd79916f71d75680bf8e2cf6c1c9&"></img>
+                            Add Address
+                        </button>
                     </div>
                 }
                 
                 <CartItems></CartItems>
                 </div>
             </main>
-            <AddAddress trigger={addPopUp} setTrigger={setAddPopUp} userData={userData}></AddAddress>
+            <AddAddress trigger={addPopUp} setTrigger={setAddPopUp}></AddAddress>
         </div>
 
 
