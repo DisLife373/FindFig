@@ -28,11 +28,11 @@
 .btn-menu-lopgin-l {
     background: #4636fc;
     color: #fff;
-    padding: 10px;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
     border: 0;
-    font-size: 1em;
+    padding: 20px;  
+    font-size: 20px;
 }
 button, select {
     text-transform: none;
@@ -49,23 +49,24 @@ button, input, optgroup, select, textarea {
 .btn-menu-lopgin-R {
     background: #E1E1E1;
     color: #4636fc;
-    padding: 10px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
     border: 0;
-    font-size: 1em;
+    padding: 20px;  
+    font-size: 20px;
 }
 .box-input-address {
     margin-bottom: 15px;
 }
 .input-login {
-    padding: 10px 0;
+    padding: 15px 0;
     width: 100%;
     border-radius: 100px;
     text-align: center;
     border: 1.2px solid #999;
-    font-size: 1em;
+    font-size: 20px;
 }
+
 .a-login {
     color: #4636fc !important;
     text-decoration: underline;

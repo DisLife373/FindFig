@@ -67,10 +67,44 @@ function SellPage(){
                 cart="https://cdn.discordapp.com/attachments/787359617280770051/1183513819981549639/2.png?ex=65889c23&is=65762723&hm=db11b00f36b56189d04437dad86744125c2456a9d7e4b7e95cc617f33e2e8efb&"
                 ></Nav>
             </header>
- 
+            <div style={{position:"absolute", paddingLeft:"40px"}}>
+            <div className="nav-index">
+            <a href="/">
+              <div className="nav-menu-item active-nav">
+                <div className="flex centerY">
+                        <img className="icon-nav-index" src='https://cdn.discordapp.com/attachments/787359617280770051/1185561359820271638/16.png?ex=65900f0e&is=657d9a0e&hm=2f8e9d7eba40fd0e42fcb16e15e7f5cefa903b4d6c772842de1a23da6879e656&' alt="home" />
+                    
+                </div>
+                <div style={{paddingLeft: "15px"}}>Home</div>
+              </div>
+              </a>
+            <a href="/account">
+              <div className="nav-menu-item" >
+                <div className="flex centerY">
+                    
+                        <img className="icon-nav-index" src='https://cdn.discordapp.com/attachments/787359617280770051/1185561360084516884/17.png?ex=65900f0e&is=657d9a0e&hm=2f00dae461fd86c9ca1e2b28e2afa51ec1f628cc08c73f50c84289f8ce2142f2&' alt="showcase" />
+                   
+                </div>
+                <div style={{paddingLeft: "15px"}}>Account</div>
+              </div>
+               </a>
+                <a href="/sell">
+              <div style={{backgroundColor:"#4636FC"}} className="nav-menu-item" >
+                <div className="flex centerY">
+                        <img className="icon-nav-index"  src='https://cdn.discordapp.com/attachments/787359617280770051/1185561359329542174/14.png?ex=65900f0e&is=657d9a0e&hm=d372af8fdee019b18f1eb6e696b55a47bb64232144b7201a7a279bcb34587d76&' alt="sell" />
+                </div>
+                <div  style={{position:"absolute", paddingLeft:"40px", color:"white"}}>Sell</div>
+              </div>
+              </a>
+            </div>
+        </div>
             <main id="main-sell">
+                
                 <div className="row page-wrapper">
+                    
+                    
                     <div id="content" className="large-12 col" role="main">
+                        
                         <header className="entry-header text-center">
                             <h1 className="entry-title header-style">Sell With Us</h1>
                             <div className="is-divider meduim"></div>
@@ -142,7 +176,7 @@ function SellPage(){
                                         <div className="input-box mini">
                                             <div className="input-box-inner">
                                                 <p>Barcode<span className="frm_required">*</span></p>
-                                                <input onChange={handleChange} className="input-address" name="barcode" value={input.barcode} type="text" placeholder="barcode" required></input>
+                                                <input onChange={handleChange} className="input-address" name="barcode" required value={input.barcode} type="text" placeholder="barcode" ></input>
                                             </div>
                                             <div className="input-box-inner">
                                                 <p>Manufacturer<span className="frm_required">*</span></p>
@@ -188,11 +222,11 @@ function SellPage(){
                                         <div className="checkbox-wrapper-42 consent-check">
                                             <input id="cbx-42" type="checkbox" required/>
                                             <label className="cbx" htmlFor="cbx-42"></label>
-                                            <label className="lbl" htmlFor="cbx-42">I consent to having FindFig collect my Name and Email(s)</label>
+                                            <label required className="lbl" htmlFor="cbx-42">I consent to having FindFig collect my Name and Email(s)</label>
                                         </div>
                                         <div className="submit-form">
                                             <div className="btn-add-form">
-                                                    <button onClick={handleClick} className="button-28" id="submit-sell" role="button">SUBMIT</button>
+                                                    <button onClick={handleClick} className="button-28" id="submit-sell" name="submit" role="button">SUBMIT</button>
                                             </div>
                                         </div>
                                     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './Signup.css';
-import Nav from "../../components/Nav/Nav";
+import EmptNav from "../../components/Nav/EmptNav";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +14,14 @@ function Signup(){
     e.preventDefault()
     axios.post('http://localhost:5000/register',{username,email,password})
     .then(response => {
-      console.log(response);
-      navigate('/login');
+      const data = response.data;
+      if (data.status === 'ok') {
+        alert("User created!");
+        navigate('/login');
+      }
+     else if(data.status === 'user existed'){
+      alert("User existed! Please log in.");
+     }
   })
   .catch(error => {
       console.error(error);
@@ -26,17 +32,16 @@ function Signup(){
   return (
     <div id='wrapper'>
       <header id="header sign-up">
-        <Nav topic="Sign up"
+        <EmptNav topic="Register"
         back="https://cdn.discordapp.com/attachments/787359617280770051/1183513820220629092/3.png?ex=65889c23&is=65762723&hm=b608f4b0dafa79e069345c1fd46fb2256b13299db710a859f027b85295bcbe44&"
-        account="https://cdn.discordapp.com/attachments/787359617280770051/1183513819427913778/1.png?ex=65889c23&is=65762723&hm=285dc6cb6f325e96a63deb650d157bb45a6fddce1731e5766d15215239f0685b&"
-        cart="https://cdn.discordapp.com/attachments/787359617280770051/1183513819981549639/2.png?ex=65889c23&is=65762723&hm=db11b00f36b56189d04437dad86744125c2456a9d7e4b7e95cc617f33e2e8efb&"
-        ></Nav>
+        
+        ></EmptNav>
       </header>
       <div id="mainbody">
             <div className="layoutmain">
             <div style={{height:"10px"}}></div>
                 <div className="bold500 font08 center flex centerY centerX">
-                    <div style={{fontSize:"15px"}}>Wellcome back!</div>
+                    <div style={{fontSize:"15px"}}>Hi!!</div>
                 </div>
                     <form onSubmit={handleSubmit}>
                     <div style={{height:"30px"}}></div>
@@ -44,8 +49,8 @@ function Signup(){
                           <a href='/login'>
                             <button type="button" className="btn-menu-lopgin-l1 flex-1" style={{width:"100%"}}>log in</button>
                           </a>
-                          <a href='/signup'>
-                            <button type="button" className="btn-menu-lopgin-R1 flex-1" style={{width:"100%"}}>sign up</button>
+                          <a href='/register'>
+                            <button type="button" className="btn-menu-lopgin-R1 flex-1" style={{width:"100%"}}>register</button>
                           </a>
                             
                         </div>

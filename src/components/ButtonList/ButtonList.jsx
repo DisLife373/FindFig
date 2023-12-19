@@ -15,7 +15,7 @@ function ButtonMenu({home,showcase,sell}){
                 <div style={{paddingLeft: "15px"}}>Home</div>
               </div>
               </a>
-            <a href="/">
+            <a href="/showcase">
               <div className="nav-menu-item" >
                 <div className="flex centerY">
                     

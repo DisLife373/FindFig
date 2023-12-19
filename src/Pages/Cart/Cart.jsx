@@ -1,10 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import './Cart.css';
 import Nav from "../../components/Nav/Nav";
 import CartItems from "../../components/CartItems/CartItems";
 import UserAdress from "../../components/Address-comp/UserAddress";
-import AddAddress from "../../components/AddAddress";
+import { useState,useEffect } from "react";
+import AddAdress from "../../components/icon/AddAddress";
+
 
 function Cart(){
     const [addPopUp, setAddPopUp] = useState(false);
@@ -12,9 +13,7 @@ function Cart(){
     const [receiverName, setReceiverName] = useState();
     const [tel, setTel] = useState();
     const [address, setAddress] = useState();
-
     const userEmail = window.localStorage.getItem("userEmail");
-
     useEffect(() => {
         fetch("http://localhost:5000/getUserForAddress", {
             method: "POST",
@@ -37,9 +36,6 @@ function Cart(){
             setUserData(data);
         })
     }, []);
-    
-
-
     return(
         <div id="wrapper">
              <header id="header">
@@ -67,11 +63,11 @@ function Cart(){
                         </button>
                     </div>
                 }
-                
                 <CartItems></CartItems>
                 </div>
             </main>
-            <AddAddress trigger={addPopUp} setTrigger={setAddPopUp}></AddAddress>
+            <AddAdress trigger={addPopUp} setTrigger={setAddPopUp}></AddAdress>
+    
         </div>
 
 

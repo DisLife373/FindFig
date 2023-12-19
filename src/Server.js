@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const router = require("./routes/SellerRoute");
 const userRouter = require('./routes/UserRoute');
 const productRouter = require('./routes/FigureRoute');
+const orderRouter = require('./routes/OrderRoute');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -26,7 +27,7 @@ app.use(function(req, res, next) {
 app.use("/", router);
 app.use("/",userRouter);
 app.use("/",productRouter);
-
+app.use("/",orderRouter)
 require('dotenv').config();
 const corsOptions = {
     origin: 'http://localhost:3000',

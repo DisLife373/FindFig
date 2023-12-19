@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import './UserAddress.css';
-import EditAddress from '../EditAddress';
+import EditAddress from "../icon/EditAddress.";
 
 function UserAdress(props){
     const [editPopUp, setEditPopUp] = useState(false);
@@ -73,7 +73,10 @@ function UserAdress(props){
     ) ? (
         <>
             <div className="address-content">
+               <div style={{height:"5px"}}></div>
+                <hr></hr>
                 <div className="address-field">
+                   
                     <div className="address-info">
                         <div className="user-info">
                             <div className="receiver-name">

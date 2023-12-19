@@ -14,14 +14,14 @@ function clickCheck(event, e, func, title) {
             <div key={index} className="form-check">
               <input
                 type="checkbox"
-                id={`check-${index}`}
+                id={`check-${index}-${props.title}`}
                 name="check"
                 value=""
                 onChange={(event) =>
                   clickCheck(event, e, props.filterHandler, props.title)
                 }
               />
-              <label htmlFor={`check-${index}`}>
+              <label htmlFor={`check-${index}-${props.title}`}>
                 <span></span>
                 {e}
               </label>

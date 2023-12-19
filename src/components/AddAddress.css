@@ -1,4 +1,4 @@
-.popup-panel {
+.popup-panel-add {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,15 +11,20 @@
 
 }
 
-.address-frame {
+.address-frame-add {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    border-radius: 5px;
     background-color: rgb(255, 255, 255);
-    width: 30%;
+    width: 50%;
     height: 60%;
     padding: 1.5%;
+    animation: appear 250ms ease-in 1;
+/* Adjust the width as needed */
+    max-width: 1020px;
+    height: 70vh; /* Adjust the height as needed */
+    margin: auto; /* Center the popup horizontally */
 }
 
 .address-field {
@@ -31,31 +36,40 @@
 .address-header {
     margin-bottom: 2%;
     flex-wrap: wrap;
+    text-align: center;
 }
 
-.user-info {
+.user-info-add {
     display: flex;
+    flex-direction: row;
     margin-bottom: 5%;
+    justify-content: space-between;
     
 }
 
 .input.name {
     width: 50%;
-    margin-right: 5%;
-    font-size: 20px;
+    margin-right: 2%;
+    font-size: 15px;
     padding-left: 2%;
+    border-radius: 5px;
+    padding: 15px;
+    border: 2px solid darkgray;
 }
 
 .input.tel {
-    width: 45%;
-    font-size: 20px;
+    padding: 15px;
+    width: 40%;
+    font-size: 15px;
     padding-left: 2%;
+    border-radius: 5px;
+    border: 2px solid darkgray;
 }
 
-.input-address {
+.input-address-add {
     display: flex;
-    
-    
+    border: 2px solid darkgray;
+    border-radius: 5px;
     width: 100%;
     height: 150px;
     font-size: 18px;
@@ -73,13 +87,7 @@
 }
 
 .button-field {
-    align-self: end;
+    align-self: flex-end;
+
 }
 
-.button-field .cancel-btn {
-    
-}
-
-.button-field .confirm-btn {
-    
-}

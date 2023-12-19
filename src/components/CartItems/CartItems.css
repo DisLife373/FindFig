@@ -1,8 +1,4 @@
 
-#mainbody {
-    max-width: 980px;
-    margin: 0 auto;
-}
 .layoutmain{
     padding: 10px;
 }
@@ -72,8 +68,8 @@ img {
 }
 .boxcart {
     background: #fff;
-    padding: 10px 0;
-    position: fixed;
+
+
     bottom: 0;
     display: flex;
     justify-content: center !important;
@@ -102,13 +98,14 @@ img {
 }
 .cartitems-format-main{
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0fr 5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
-    gap: 75px;
-    padding: 20px 0px;
+    gap: 20px;
+    padding: 10px 0px;
     color: black;
     font-size: 18px;
-    font-weight: 600px;
+    align-items: flex-start;
+
 }
 .cartitems-format{
     font-size: 17px;
@@ -121,6 +118,11 @@ img {
 .cart-remove{
     width: 30px;
 
+    cursor: pointer;
+}
+.cart-remove:hover{
+    transform: scale(1.05);
+    transition: all 1s ease;
     cursor: pointer;
 }
 .cartitems-quantity{

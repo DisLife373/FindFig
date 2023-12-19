@@ -13,7 +13,7 @@ const Nav = ({topic,back,account,cart}) => {
 
       </div>
       <div className="profile-container">
-        <a href="/profile">
+        <a href="/account">
         <img className="nav-icons" src={account} alt="Profile" />
         </a>
         <a href="/cart">

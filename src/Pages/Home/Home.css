@@ -37,7 +37,7 @@
   width: 100%;
   padding: 15px;
   border-radius: 5px;
-  border: 1px solid #333;
+  border: 1px solid #4636FC;
 }
 
 .filter-btn{
@@ -149,3 +149,15 @@
     transition: width 150ms ease 100ms;
   }
 
+.poster{
+  max-width: 100%;
+}
+.poster img{
+
+  border-radius: 20px;
+  justify-content: center;
+}
+.home-set{
+  flex-direction: column;
+
+}

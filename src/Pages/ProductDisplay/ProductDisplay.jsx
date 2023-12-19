@@ -3,6 +3,7 @@ import { useEffect,useState } from "react";
 import "./ProductDisplay.css";
 import Nav from "../../components/Nav/Nav";
 import { ShopContext } from "../../components/ShopContext/ShopContext";
+import ImageSlider from "../../components/ImageSlider";
 
 
 const ProductDisplay = ({ product }) => { // Destructure directly
@@ -10,16 +11,28 @@ const ProductDisplay = ({ product }) => { // Destructure directly
   const [quantity, setQuantity] = useState(1);
   
   const handleAddQuantity = () => {
-    if (quantity < product.stock) {
+    
       setQuantity(quantity + 1);
-    }
+    
   };
-  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: <div className="slick-prev">Previous</div>,
+    nextArrow: <div className="slick-next">Next</div>,
+  };
 
   const handleRemoveQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+   if(quantity>1){
+    setQuantity(quantity - 1);
+   }
+    
+    
   };
   
   if (!product) {
@@ -47,6 +60,7 @@ const ProductDisplay = ({ product }) => { // Destructure directly
                       <div className="productdisplay-img">
                         <img className="productdisplay-main-img " id="product-img" src={product.imgs[0]} alt=""/>
                         <div style={{paddingTop:"10px"}} className="productdisplay-img-list">
+                         
                         {product.imgs.map((img, index) => (
                           <img key={index} src={img} alt={`Image ${index + 1}`} className="list-image"/>))}
                         </div>
@@ -61,12 +75,14 @@ const ProductDisplay = ({ product }) => { // Destructure directly
                         {product.price}
                       </bdi>
                       <p className="des">description</p>
-                      <p className="text1">{(product.description)}</p>
+                      <div className="text1">{(product.description)}</div>
+                      <div style={{height:"10px"}}></div>
                       <div className="tag-cate">
+                      <div style={{height:"10px"}}></div>
                         <span>
-                        <p className="text2">grading: <span>{product.preowned_grade.map((grade, index) => (
+                        <a className="text2">grading: <span>{product.preowned_grade.map((grade, index) => (
                         `item: ${grade.item}, box: ${grade.box}${index < product.preowned_grade.length - 1 ? ', ' : ''}`
-                        ))}</span></p>
+                        ))}</span></a>
                         </span>
                         <span>
                           <a className="text2">category: <span>{product.category.join(', ')}</span></a>
@@ -74,14 +90,15 @@ const ProductDisplay = ({ product }) => { // Destructure directly
                         <span>
                           <a className="text2">tags: <span>{product.tags.join(', ')}</span></a>
                         </span>
+                        <div style={{height:"10px"}}></div>
                       </div>
                       {/* Quantity controls */}
                     <div className="buy">
-                      <p className="instock">In stock: {product.stock}</p>
+                      {/* <p className="instock">In stock: {product.stock}</p> */}
                       <div className="select-quantity-container">
                         <button className="btn-rm" onClick={handleRemoveQuantity}><span></span>-</button>
                         <div className="quantity-container">
-                          <p className="quantity">{quantity}</p>
+                          <div className="quantity">{quantity}</div>
                         </div>
                       
                         <button className="btn-add" onClick={handleAddQuantity}><span className="text">+</span></button>
@@ -100,8 +117,9 @@ const ProductDisplay = ({ product }) => { // Destructure directly
                     <div className="tab" id="tab-container">
                       <div className="tabs-titles">
                           
-                        <button className="tablinks button-48" onClick={(event) => openTab(event, 'about') }><span>ABOUT THIS ITEM</span></button>
-                        <button className="tablinks button-48" onClick={(event) => openTab(event, 'grading')}><span>GRADING SCALE</span></button>
+                        {/* <button className="tablinks button-48" onClick={(event) => openTab(event, 'about') }><span>ABOUT THIS ITEM</span></button> */}
+                        <button className="tablinks button-48" ><span>ABOUT THIS ITEM</span></button>
+                       {/* <button className="tablinks button-48" onClick={(event) => openTab(event, 'grading')}><span>GRADING SCALE</span></button> */}
                       </div> 
                     </div>
                     
@@ -160,8 +178,11 @@ const ProductDisplay = ({ product }) => { // Destructure directly
                       </div>
                       </div>
                       {/* Grading scale */}
+                      <button className="tablinks button-48" ><span>GRADING SCALE</span></button>
                         <div className="tabcontent" id="grading">
+                        
                           <div >
+                           
                           <h5>Item Grading</h5>
                           <div><strong>S:</strong> Like new. Figure may shows no sign of wear.</div>
                           <div><strong>A:</strong> Minor signs of wear. May have light scratches/paint loss.</div>
@@ -203,26 +224,26 @@ window.addEventListener('click', function () {
 
 
 
-//section tab
-function openTab(evt, tabName) {
-  var i, tabContent, tablinks;
-  // Hide all tabs
-  tabContent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = "none";
+// //section tab
+// function openTab(evt, tabName) {
+//   var i, tabContent, tablinks;
+//   // Hide all tabs
+//   tabContent = document.getElementsByClassName("tabcontent");
+//   for (i = 0; i < tabContent.length; i++) {
+//     tabContent[i].style.display = "none";
 
-  }
-  // Remove the "active" class from all tab links
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active");
-  }
-  // Show the clicked tab
-  document.getElementById(tabName).style.display = "block";
-  // Add the "active" class to the clicked tab link
-  evt.currentTarget.classList.add("active");
+//   }
+//   // Remove the "active" class from all tab links
+//   tablinks = document.getElementsByClassName("tablinks");
+//   for (i = 0; i < tablinks.length; i++) {
+//     tablinks[i].classList.remove("active");
+//   }
+//   // Show the clicked tab
+//   document.getElementById(tabName).style.display = "block";
+//   // Add the "active" class to the clicked tab link
+//   evt.currentTarget.classList.add("active");
 
-}
+// }
 
 
 export default ProductDisplay;
