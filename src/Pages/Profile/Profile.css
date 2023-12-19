@@ -43,7 +43,6 @@ form.profile-container {
     grid-gap: 0;
     grid-column: auto;
     grid-column: span 12/span 12;
-    display: block;
     margin-top: 0em;
 }
 
@@ -136,7 +135,7 @@ h4.username {
     will-change: transform;
 }
 
-.button-container .button-field .delete-account-btn {
+.user-profile-info .delete-account-btn {
     appearance: none;
     background-color: #fc3636;
     border-radius: 50px;
